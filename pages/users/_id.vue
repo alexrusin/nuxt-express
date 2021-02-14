@@ -16,7 +16,9 @@
 </template>
 
 <script>
+import authMixin from '~/mixins/authMixin'
 export default {
+  mixins: [authMixin],
   asyncData ({ params, error, $http }) {
     return $http.$get('/api/users/' + params.id)
       .then((res) => {

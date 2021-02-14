@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@nuxt/http": "latest",
+    "@nuxtjs/axios": "latest",
+    "express-session": "^1.17.1",
     "nuxt": "latest"
   },
   "devDependencies": {

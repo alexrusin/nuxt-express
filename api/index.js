@@ -1,11 +1,24 @@
 const express = require('express')
+const session = require('express-session')
 
 // Create express instance
 const app = express()
-
 // Require API routes
 const users = require('./routes/users')
 const test = require('./routes/test')
+
+const sess = {
+  secret: process.env.SECRET_KEY,
+  cookie: {}
+}
+
+if (process.env === 'production') {
+  app.set('trust proxy', 1) // trust first proxy
+  sess.cookie.secure = true // serve secure cookies
+}
+
+app.use(session(sess))
+app.use(express.json())
 
 // Import API Routes
 app.use(users)

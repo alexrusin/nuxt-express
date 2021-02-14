@@ -6,7 +6,15 @@
         nuxt-express
       </h1>
       <div>
-        {{ test }}
+        Hello {{ user.name }}
+        <div class="links">
+          <nuxt-link
+            to="/login"
+            class="button--green"
+          >
+            Login
+          </nuxt-link>
+        </div>
         <div class="links">
           <a
             href="/users"
@@ -41,9 +49,9 @@
 <script>
 export default {
   async asyncData ({ $http }) {
-    const test = await $http.$get('/api/test')
+    const user = await $http.$get('/api/users/me')
     return {
-      test
+      user
     }
   }
 }

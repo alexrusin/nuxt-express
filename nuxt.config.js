@@ -1,5 +1,9 @@
 
 export default {
+  ssr: true,
+  env: {
+    testEnv: process.env.TEST
+  },
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
@@ -54,7 +58,8 @@ export default {
   */
   modules: [
     // Doc: https://http.nuxtjs.org
-    '@nuxt/http'
+    '@nuxt/http',
+    '@nuxtjs/axios'
   ],
 
   /*
